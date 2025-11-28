@@ -1,0 +1,16 @@
+{
+  "name": "advent-of-code",
+  "devDependencies": {
+    "@linusljung/generate-lajnz": "^0.0.7",
+    "@types/bun": "^1.3.3",
+    "@types/yargs": "^17.0.35",
+    "bun-types": "^1.3.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "eol": "^0.10.0",
+    "yargs": "^18.0.0"
+  }
+}
