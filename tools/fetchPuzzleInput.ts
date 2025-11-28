@@ -20,7 +20,7 @@ if (!args.out) {
 
 const session = await Bun.file(args.session).text();
 
-fetch(`https://adventofcode.com/{YEAR}/day/${args.day}/input`, {
+fetch(`https://adventofcode.com/2025/day/${args.day}/input`, {
   headers: {
     cookie: `session=${session}`,
   },
