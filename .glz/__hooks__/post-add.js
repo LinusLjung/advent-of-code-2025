@@ -3,8 +3,6 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '../..');
 
-console.log('postadd');
-
 function postAdd(_, { name }) {
   spawn(
     'bun',
