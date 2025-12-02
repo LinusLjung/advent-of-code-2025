@@ -1,9 +1,11 @@
+import { getRanges } from 'getRanges';
+
 export function part1(input: string) {
-  const ranges = input.split(',').map((range) => range.split('-').map(Number) as [number, number]);
+  const ranges = getRanges(input);
   const invalids: number[] = [];
 
   for (const [start, end] of ranges) {
-    for (let i = start; i <= end; i++) {
+    for (let i = Number(start); i <= Number(end); i++) {
       if (!idIsValid(i)) {
         invalids.push(i);
       }
