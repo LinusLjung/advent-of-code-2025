@@ -1,5 +1,5 @@
-type Operand = '*' | '+';
-type Expression = [...number[], Operand];
+import { solveExpression } from 'solveExpression';
+import type { Expression, Operand } from 'types';
 
 export function part1(input: string) {
   const expressions = transpose(
@@ -21,24 +21,6 @@ export function part1(input: string) {
   ) as Expression[];
 
   return expressions.reduce((acc, curr) => acc + solveExpression(curr), 0);
-}
-
-function solveExpression(expression: [...number[], Operand]) {
-  const nums = expression.slice(0, -1) as number[];
-  const operand = expression.at(-1)! as Operand;
-  let result = nums[0];
-
-  for (let i = 1; i < nums.length; i++) {
-    const num = nums[i];
-
-    if (operand === '*') {
-      result *= num;
-    } else {
-      result += num;
-    }
-  }
-
-  return result;
 }
 
 function transpose<T>(arr: T[][]): T[][] {
