@@ -1,9 +1,10 @@
 import { Box } from 'Box';
+import { getBoxes } from 'getBoxes';
 import { makePair } from 'makePair';
 
 export function part1(input: string, iterations: number) {
-  const boxes = input.split('\n').map((row) => new Box(...(row.split(',').map(Number) as [number, number, number])));
-  const circuits: Box[][] = [];
+  const boxes = getBoxes(input);
+  const circuits = boxes.map(box => [box]);
 
   for (let i = 0; i < iterations; i++) {
     makePair(boxes, circuits);

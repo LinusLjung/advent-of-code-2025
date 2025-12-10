@@ -13,29 +13,19 @@ export function makePair(boxes: Box[], circuits: Box[][]) {
   box2.closest = null;
 
   if (box1Circuit !== -1 && box2Circuit !== -1 && box1Circuit === box2Circuit) {
-    return;
-  }
-
-  if (box1Circuit === -1 && box2Circuit === -1) {
-    circuits.push([box1, box2]);
-    return;
+    return 0;
   }
 
   if (box1Circuit !== -1 && box2Circuit === -1) {
     circuits[box1Circuit].push(box2);
-    return;
-  }
-
-  if (box1Circuit === -1 && box2Circuit !== -1) {
+  } else if (box1Circuit === -1 && box2Circuit !== -1) {
     circuits[box2Circuit].push(box1);
-    return;
-  }
-
-  if (box1Circuit !== -1 && box2Circuit !== -1) {
+  } else if (box1Circuit !== -1 && box2Circuit !== -1) {
     circuits[box1Circuit].push(...circuits[box2Circuit]);
     circuits.splice(box2Circuit, 1);
-    return;
   }
+
+  return box1.x * box2.x;
 }
 
 export function findCircuit(box: Box, circuits: Box[][]) {
