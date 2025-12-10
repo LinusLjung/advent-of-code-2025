@@ -1,4 +1,5 @@
-import Grid, { type Coord } from 'Grid';
+import { Beam } from 'Beam';
+import Grid from 'Grid';
 
 export function part1(input: string) {
   const grid = new Grid(input);
@@ -12,7 +13,7 @@ export function part1(input: string) {
 
   while (beams.size) {
     for (const [key, beam] of beams) {
-      beams.delete(beam.getPositionKey());
+      beams.delete(key);
       beam.position[0]++;
       beams.set(beam.getPositionKey(), beam);
 
@@ -36,16 +37,4 @@ export function part1(input: string) {
   }
 
   return splitCount;
-}
-
-class Beam {
-  position: Coord;
-
-  constructor(position: Coord) {
-    this.position = position;
-  }
-
-  getPositionKey() {
-    return this.position.toString();
-  }
 }
