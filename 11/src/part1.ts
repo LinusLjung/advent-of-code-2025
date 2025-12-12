@@ -23,19 +23,12 @@ function solve(outputs: string[], devices: Map<string, string[]>) {
 
   while (queue.length) {
     const outputs = queue.pop()!;
-    const visited: string[] = [];
 
     for (const output of outputs) {
-      if (visited.includes(output)) {
-        continue;
-      }
-
       if (output === 'out') {
         count++;
         continue;
       }
-
-      visited.push(output);
 
       queue.push(devices.get(output)!);
     }
